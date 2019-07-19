@@ -4,14 +4,25 @@ import java.util.Scanner;
 
 public class Terster {
     public static void main(String[] args) {
-        int mTickets;
-        int mRoundTripTickets;
+        int tickets = 0;
+        int roundTripTickets = 0;
+        final int TICKETS_STOP = 1;
         Scanner mScanner = new Scanner(System.in);
-        System.out.print("Please enter number of tickets:");
-        mTickets = mScanner.nextInt();
-        System.out.print("How many round trip- tickets:");
-        mRoundTripTickets = mScanner.nextInt();
-        Tickets mTotalTickets = new Tickets(mTickets, mRoundTripTickets);
-        mTotalTickets.getAnswer();
+
+        while (tickets != TICKETS_STOP) {
+            System.out.print("Please enter number of tickets:");
+            tickets = mScanner.nextInt();
+            if (tickets == TICKETS_STOP) {
+                break;
+            }
+            System.out.print("How many round trip- tickets:");
+            roundTripTickets = mScanner.nextInt();
+            if (roundTripTickets == TICKETS_STOP) {
+                break;
+            }
+            Tickets mTotalTickets = new Tickets(tickets, roundTripTickets);
+            mTotalTickets.getAnswer();
+        }
+
     }
 }
