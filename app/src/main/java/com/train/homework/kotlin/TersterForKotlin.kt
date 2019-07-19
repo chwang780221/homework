@@ -4,16 +4,20 @@ import java.util.*
 
 fun main(args: Array<String>) {
     val scanner = Scanner(System.`in`)
-    var mTickets = 0
-    var mRoundTripTickets = 0
+    val TICKETS_STOP = -1
+    var tickets = 0
+    var roundTripTickets = 0
 
-    print("Please enter nmber of tickets:")
-    mTickets = scanner.nextInt()
-    print("Please enter round-trip tickets:")
-    mRoundTripTickets = scanner.nextInt()
-
-    val ticket = TicketKotlin(tickets = mTickets, roundTripTicket = mRoundTripTickets)
-    ticket.print()
+    while (tickets != TICKETS_STOP) {
+        print("Please enter nmber of tickets:")
+        tickets = scanner.nextInt()
+        if (tickets == TICKETS_STOP) break
+        print("Please enter round-trip tickets:")
+        roundTripTickets = scanner.nextInt()
+        if (tickets == TICKETS_STOP) break
+        val ticket = TicketKotlin(tickets = tickets, roundTripTicket = roundTripTickets)
+        ticket.print()
+    }
 }
 
 class TicketKotlin(var tickets: Int, var roundTripTicket: Int) {
